@@ -120,7 +120,7 @@ namespace TheGame
 
             this.ShowInTaskbar = !isMinimized;
             notifyIcon1.Visible = isMinimized;
-            if (isMinimized) notifyIcon1.ShowBalloonTip(500, "The Game", "Jogo minimizado e escondido.", ToolTipIcon.Info);
+            if (isMinimized) notifyIcon1.ShowBalloonTip(500, "The Idle Game", "Jogo minimizado e escondido.", ToolTipIcon.Info);
         }
 
         private void button3_MouseClick(object sender, MouseEventArgs e)
