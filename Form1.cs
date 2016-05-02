@@ -54,6 +54,14 @@ namespace TheGame
 
         private void timer1_Tick(object sender, EventArgs e)
         {
+            if (dinheiro < 0)
+            {
+                label1.Text = "Cheater";
+                button1.Enabled = false;
+                button1.Text = "Reinicie o jogo.";
+                timer2.Stop();
+            }
+
             if (dinheiro < custo)
             {
                 button2.Enabled = false;
@@ -79,6 +87,11 @@ namespace TheGame
             else
             {
                 button4.Enabled = true;
+            }
+
+            if (tempo_escravo < 100)
+            {
+                progressBar1.Style = ProgressBarStyle.Marquee;
             }
 
             if (dinheiro < custo_escravo_dinheiro)
@@ -141,17 +154,20 @@ namespace TheGame
 
         private void timer2_Tick(object sender, EventArgs e)
         {
-            progressBar1.Value = 0;
-            progressBar1.PerformStep();
-            progressBar1.PerformStep();
-            progressBar1.PerformStep();
-            progressBar1.PerformStep();
-            progressBar1.PerformStep();
-            progressBar1.PerformStep();
-            progressBar1.PerformStep();
-            progressBar1.PerformStep();
-            progressBar1.PerformStep();
-            progressBar1.PerformStep();
+            if (progressBar1.Style == ProgressBarStyle.Blocks)
+            {
+                progressBar1.Value = 0;
+                progressBar1.PerformStep();
+                progressBar1.PerformStep();
+                progressBar1.PerformStep();
+                progressBar1.PerformStep();
+                progressBar1.PerformStep();
+                progressBar1.PerformStep();
+                progressBar1.PerformStep();
+                progressBar1.PerformStep();
+                progressBar1.PerformStep();
+                progressBar1.PerformStep();
+            }
             dinheiro = dinheiro + dinheiro_escravo;
             update();
         }
@@ -164,7 +180,7 @@ namespace TheGame
 
         private void update()
         {
-            label1.Text = string.Format("$: {0:N2}",dinheiro);
+            label1.Text = string.Format("$: {0}",dinheiro);
         }
 
         private void button4_MouseClick(object sender, MouseEventArgs e)
@@ -193,18 +209,22 @@ namespace TheGame
 
         private void Form1_KeyDown(object sender, KeyEventArgs e)
         {
-            /*Cheats desativados
-            if (e.KeyCode == Keys.Oemplus && (e.Control && e.Alt))
-            {
-                EnableTab(tabPage4, true);
-                tabPage4.Text = "test";
+            /*Cheats desativados*/
+            bool cheats = false;
+            if (cheats == true) 
+            { 
+                if (e.KeyCode == Keys.Oemplus && (e.Control && e.Alt))
+                {
+                    EnableTab(tabPage4, true);
+                    tabPage4.Text = "test";
+                }
+                    
+                if (e.KeyCode == Keys.OemMinus && (e.Control && e.Alt))
+                {
+                    EnableTab(tabPage4, false);
+                    tabPage4.Text = "test";
+                }
             }
-
-            if (e.KeyCode == Keys.OemMinus && (e.Control && e.Alt))
-            {
-                EnableTab(tabPage4, false);
-                tabPage4.Text = "test";
-            }*/
         }
 
         private void button6_MouseClick(object sender, MouseEventArgs e)

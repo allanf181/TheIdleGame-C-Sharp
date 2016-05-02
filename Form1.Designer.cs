@@ -169,7 +169,7 @@
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(294, 149);
             this.button2.TabIndex = 2;
-            this.button2.Text = "Multiplicador x1";
+            this.button2.Text = "Multiplicador x2";
             this.button2.UseVisualStyleBackColor = true;
             this.button2.MouseClick += new System.Windows.Forms.MouseEventHandler(this.button2_MouseClick);
             // 
@@ -266,6 +266,7 @@
             // progressBar1
             // 
             this.progressBar1.Location = new System.Drawing.Point(46, 78);
+            this.progressBar1.MarqueeAnimationSpeed = 10;
             this.progressBar1.Name = "progressBar1";
             this.progressBar1.Size = new System.Drawing.Size(621, 23);
             this.progressBar1.TabIndex = 6;
